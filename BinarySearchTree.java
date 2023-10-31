@@ -6,11 +6,15 @@ import java.util.NoSuchElementException;
 
 public class BinarySearchTree<Type extends Comparable<? super Type>> implements SortedSet<Type> {
     private BinaryNode<Type> rootNode;
+    private int size;
 
-
+    public BinarySearchTree() {
+    	rootNode = null;
+    	size = 0;
+    }
     @Override
 	public boolean add(Type item) {
-		// TODO Auto-generated method stub
+    	
 		return false;
 	}
 
