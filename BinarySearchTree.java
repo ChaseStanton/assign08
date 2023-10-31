@@ -97,15 +97,76 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 	}
 
 	@Override
-	public boolean remove(Type item) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+public boolean remove(Type item) {
+    BinaryNode<Type> parent = null;
+    BinaryNode<Type> current = rootNode;
+
+    while (current != null) {
+        int comparison = item.compareTo(current.getData());
+
+        if (comparison == 0) {
+            if (current.getLeftChild() == null && current.getRightChild() == null) {
+                if (parent == null) {
+                    rootNode = null;
+                } else if (parent.getLeftChild() == current) {
+                    parent.setLeftChild(null);
+                } else {
+                    parent.setRightChild(null);
+                }
+            } else if (current.getLeftChild() == null || current.getRightChild() == null) {
+
+                BinaryNode<Type> child = (current.getLeftChild() != null) ? current.getLeftChild() : current.getRightChild();
+                if (parent == null) {
+                    rootNode = child;
+                } else if (parent.getLeftChild() == current) {
+                    parent.setLeftChild(child);
+                } else {
+                    parent.setRightChild(child);
+                }
+            } else {
+                BinaryNode<Type> successor = current.getRightChild();
+                BinaryNode<Type> successorParent = current;
+                while (successor.getLeftChild() != null) {
+                    successorParent = successor;
+                    successor = successor.getLeftChild();
+                }
+                if (successorParent != current) {
+                    successorParent.setLeftChild(successor.getRightChild());
+                    successor.setRightChild(current.getRightChild());
+                }
+                successor.setLeftChild(current.getLeftChild());
+                if (parent == null) {
+                    rootNode = successor;
+                } else if (parent.getLeftChild() == current) {
+                    parent.setLeftChild(successor);
+                } else {
+                    parent.setRightChild(successor);
+                }
+            }
+            size--;
+            return true;
+        } else if (comparison < 0) {
+            parent = current;
+            current = current.getLeftChild();
+        } else {
+            parent = current;
+            current = current.getRightChild();
+        }
+    }
+
+    return false;
+}
+
 
 	@Override
 	public boolean removeAll(Collection<? extends Type> items) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean flag = false;
+        for (Type item : items){
+            if(remove(item)){
+                flag = true;
+            }
+        }
+        return flag;
 	}
 
 	@Override
