@@ -42,8 +42,12 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 
 	@Override
 	public boolean addAll(Collection<? extends Type> items) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean b = false;
+		for(Type item: items) {
+			if(add(item) == true)
+				b = true;
+		}
+		return b;
 	}
 
 	@Override
@@ -54,32 +58,41 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 
 	@Override
 	public boolean contains(Type item) {
-		// TODO Auto-generated method stub
+		BinaryNode<Type> temp = rootNode;
+		while(temp != null) {
+			if(item.compareTo(temp.getData()) == 0)
+				return true;
+			else if(item.compareTo(temp.getData()) > 0)
+				temp = temp.getLeftChild();
+			temp = temp.getRightChild();
+		}
 		return false;
 	}
 
 	@Override
 	public boolean containsAll(Collection<? extends Type> items) {
-		// TODO Auto-generated method stub
+		for(Type item: items) {
+			if(contains(item))
+				return true;
+		}
 		return false;
 	}
 
 	@Override
 	public Type first() throws NoSuchElementException {
-		// TODO Auto-generated method stub
-		return null;
+		return rootNode.getLeftmostNode().getData();
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
+		if(size == 0)
+			return true;
 		return false;
 	}
 
 	@Override
 	public Type last() throws NoSuchElementException {
-		// TODO Auto-generated method stub
-		return null;
+		return rootNode.getRightmostNode().getData();
 	}
 
 	@Override
@@ -96,8 +109,7 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return size;
 	}
 
 	@Override
