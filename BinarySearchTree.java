@@ -5,8 +5,10 @@ import java.util.Collection;
 import java.util.NoSuchElementException;
 
 public class BinarySearchTree<Type extends Comparable<? super Type>> implements SortedSet<Type> {
+    private BinaryNode<Type> rootNode;
 
-	@Override
+
+    @Override
 	public boolean add(Type item) {
 		// TODO Auto-generated method stub
 		return false;
@@ -78,4 +80,19 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 		return null;
 	}
     
+    private BinaryNode<Type> search(Type data){
+        BinaryNode<Type> head = this.rootNode; 
+        while(head.getLeftChild() != null && head.getRightChild() != null){
+            if(head != null && head.getData().equals(data)){
+                return head;
+            }
+            else if(data.compareTo(head.getData()) < 0 && head.getLeftChild() != null){
+                head = head.getLeftChild();
+            }
+            else if(data.compareTo(head.getData()) > 0 && head.getRightChild() != null){
+                head = head.getRightChild();
+            }
+        }
+        throw new NoSuchElementException("Element not in the binary search tree");
+    }
 }
