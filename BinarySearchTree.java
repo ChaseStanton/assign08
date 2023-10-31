@@ -59,7 +59,8 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 
 	@Override
 	public void clear() {
-        rootNode = new BinaryNode<Type>();		
+        rootNode = null;
+        size = 0;
 	}
 
 	@Override
@@ -70,7 +71,9 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 				return true;
 			else if(item.compareTo(temp.getData()) > 0)
 				temp = temp.getLeftChild();
+			else {
 			temp = temp.getRightChild();
+			}
 		}
         return false;
 	}
@@ -87,6 +90,9 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 
 	@Override
 	public Type first() throws NoSuchElementException {
+		if(rootNode == null) {
+			throw new NoSuchElementException("The tree is empty");
+		}
 		return rootNode.getLeftmostNode().getData();
 	}
 
@@ -99,6 +105,9 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 
 	@Override
 	public Type last() throws NoSuchElementException {
+		if(rootNode == null) {
+			throw new NoSuchElementException("The tree is empty");
+		}
 		return rootNode.getRightmostNode().getData();
 	}
 
