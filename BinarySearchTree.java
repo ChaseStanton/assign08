@@ -12,10 +12,32 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
     	rootNode = null;
     	size = 0;
     }
-    @Override
+
+	@Override
 	public boolean add(Type item) {
-    	
-		return false;
+		BinaryNode<Type> itemNode = new BinaryNode<Type>(item);
+		BinaryNode<Type> temp = rootNode;
+
+		while (true) {
+			if (item.compareTo(temp.getData()) == 0)
+				return false;
+			else if (item.compareTo(temp.getData()) > 0) {
+				if (temp.getLeftChild() == null) {
+					temp.setLeftChild(itemNode);
+					size++;
+					return true;
+				}
+				temp = temp.getLeftChild();
+
+			} else {
+				if (temp.getRightChild() == null) {
+					temp.setRightChild(itemNode);
+					size++;
+					return true;
+				}
+				temp = temp.getRightChild();
+			}
+		}
 	}
 
 	@Override
