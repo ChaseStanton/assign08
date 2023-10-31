@@ -42,6 +42,7 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 
 	@Override
 	public boolean addAll(Collection<? extends Type> items) {
+		
         boolean flag = false;
 		for(Type item: items){
             if(add(item) == true);
@@ -57,20 +58,25 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 
 	@Override
 	public boolean contains(Type item) {
-		if(search(item) != null){
-            return true;
-        }
+		BinaryNode<Type> temp = rootNode;
+		while(temp != null) {
+			if(item.compareTo(temp.getData()) == 0)
+				return true;
+			else if(item.compareTo(temp.getData()) > 0)
+				temp = temp.getLeftChild();
+			temp = temp.getRightChild();
+		}
         return false;
 	}
 
 	@Override
 	public boolean containsAll(Collection<? extends Type> items) {
-		for (Type item: items){
-            if(!contains(item)){
-                return false;
-            }
-        }
-        return true;
+		for(Type item: items) {
+			if(contains(item))
+				return true;
+		}
+		return false;
+		
 	}
 
 	@Override
@@ -170,8 +176,17 @@ public boolean remove(Type item) {
 
 	@Override
 	public ArrayList<Type> toArrayList() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Type> list = new ArrayList<>();
+		inOrderTraversal(rootNode, list);
+		return list;
+	}
+	private void inOrderTraversal(BinaryNode<Type> node, ArrayList<Type> list) {
+		if(node != null) {
+			inOrderTraversal(node.getLeftChild(), list);
+			list.add(node.getData());
+			inOrderTraversal(node.getRightChild(), list);
+			
+		}
 	}
 
     private BinaryNode<Type> search(Type data){

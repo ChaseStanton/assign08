@@ -1,6 +1,5 @@
 package assign08;
 
-import lab09.BinaryNode;
 
 public class BinaryNode <Type> {
     private Type data;
@@ -44,7 +43,7 @@ public class BinaryNode <Type> {
         return this.rightChild;
     }
     public BinaryNode<Type> getLeftmostNode() {
-		if(this.rightChild == null)
+		if(this.leftChild == null)
 			return this;
 		
 		
@@ -52,7 +51,7 @@ public class BinaryNode <Type> {
 
 	}
     public BinaryNode<Type> getRightmostNode() {
-		if(this.leftChild == null)
+		if(this.rightChild == null)
 			return this;
 		
 		return rightChild.getRightmostNode();
