@@ -10,32 +10,45 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 
     @Override
 	public boolean add(Type item) {
-		// TODO Auto-generated method stub
-		return false;
+        BinaryNode<Type> node = search(item);
+		if (node == null){
+        node = new BinaryNode<Type> (item);
+        return true;
+        }
+        return false;
 	}
 
 	@Override
 	public boolean addAll(Collection<? extends Type> items) {
-		// TODO Auto-generated method stub
-		return false;
+        boolean flag = false;
+		for(Type item: items){
+            if(add(item) == true);
+            flag = true;
+        }
+        return flag;
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+        rootNode = new BinaryNode<Type>();		
 	}
 
 	@Override
 	public boolean contains(Type item) {
-		// TODO Auto-generated method stub
-		return false;
+		if(search(item) != null){
+            return true;
+        }
+        return false;
 	}
 
 	@Override
 	public boolean containsAll(Collection<? extends Type> items) {
-		// TODO Auto-generated method stub
-		return false;
+		for (Type item: items){
+            if(!contains(item)){
+                return false;
+            }
+        }
+        return true;
 	}
 
 	@Override
@@ -79,7 +92,7 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 		// TODO Auto-generated method stub
 		return null;
 	}
-    
+
     private BinaryNode<Type> search(Type data){
         BinaryNode<Type> head = this.rootNode; 
         while(head.getLeftChild() != null && head.getRightChild() != null){
@@ -93,6 +106,6 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
                 head = head.getRightChild();
             }
         }
-        throw new NoSuchElementException("Element not in the binary search tree");
+        return head;
     }
 }
