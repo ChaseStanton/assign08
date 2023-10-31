@@ -6,6 +6,12 @@ public class BinaryNode <Type> {
     private Type data;
     private BinaryNode<Type> leftChild, rightChild;
 
+    public BinaryNode(){
+        this.data = null;
+        this.leftChild = null;
+        this.rightChild = null;
+    }
+
     public BinaryNode(Type data){
         this.data = data;
         this.leftChild = null;

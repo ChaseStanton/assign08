@@ -42,22 +42,31 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 
 	@Override
 	public boolean addAll(Collection<? extends Type> items) {
+<<<<<<< HEAD
 		boolean b = false;
 		for(Type item: items) {
 			if(add(item) == true)
 				b = true;
 		}
 		return b;
+=======
+        boolean flag = false;
+		for(Type item: items){
+            if(add(item) == true);
+            flag = true;
+        }
+        return flag;
+>>>>>>> 9dcb30a1b56a47e79df031f3324abfe24488e711
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+        rootNode = new BinaryNode<Type>();		
 	}
 
 	@Override
 	public boolean contains(Type item) {
+<<<<<<< HEAD
 		BinaryNode<Type> temp = rootNode;
 		while(temp != null) {
 			if(item.compareTo(temp.getData()) == 0)
@@ -67,15 +76,30 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 			temp = temp.getRightChild();
 		}
 		return false;
+=======
+		if(search(item) != null){
+            return true;
+        }
+        return false;
+>>>>>>> 9dcb30a1b56a47e79df031f3324abfe24488e711
 	}
 
 	@Override
 	public boolean containsAll(Collection<? extends Type> items) {
+<<<<<<< HEAD
 		for(Type item: items) {
 			if(contains(item))
 				return true;
 		}
 		return false;
+=======
+		for (Type item: items){
+            if(!contains(item)){
+                return false;
+            }
+        }
+        return true;
+>>>>>>> 9dcb30a1b56a47e79df031f3324abfe24488e711
 	}
 
 	@Override
@@ -117,7 +141,7 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 		// TODO Auto-generated method stub
 		return null;
 	}
-    
+
     private BinaryNode<Type> search(Type data){
         BinaryNode<Type> head = this.rootNode; 
         while(head.getLeftChild() != null && head.getRightChild() != null){
@@ -131,6 +155,6 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
                 head = head.getRightChild();
             }
         }
-        throw new NoSuchElementException("Element not in the binary search tree");
+        return head;
     }
 }
