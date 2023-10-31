@@ -16,6 +16,12 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 	@Override
 	public boolean add(Type item) {
 		BinaryNode<Type> itemNode = new BinaryNode<Type>(item);
+		
+		if(rootNode == null) {
+			rootNode = itemNode;
+			size++;
+			return true;
+		}
 		BinaryNode<Type> temp = rootNode;
 
 		while (true) {
