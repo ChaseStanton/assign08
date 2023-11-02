@@ -199,6 +199,7 @@ public boolean remove(Type item) {
 		inOrderTraversal(rootNode, list);
 		return list;
 	}
+	
 	private void inOrderTraversal(BinaryNode<Type> node, ArrayList<Type> list) {
 		if(node != null) {
 			inOrderTraversal(node.getLeftChild(), list);

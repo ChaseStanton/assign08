@@ -47,7 +47,7 @@ public class BinaryNode <Type> {
 			return this;
 		
 		
-		return leftChild.getLeftmostNode();
+		return this.leftChild.getLeftmostNode();
 
 	}
     public BinaryNode<Type> getRightmostNode() {
