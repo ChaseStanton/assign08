@@ -90,6 +90,19 @@ class BinarySearchTreeTest {
         stringTree.add("10");
         assertEquals(stringTree.first(), "1");
     }
+    @Test
+    public void firstMethod2(){
+        stringTree = new BinarySearchTree<>();
+        
+        stringTree.add("4");
+        stringTree.add("5");
+        stringTree.add("6");
+        stringTree.add("7");
+        stringTree.add("8");
+        stringTree.add("9");
+        stringTree.add("10");
+        assertEquals(stringTree.first(), "4");
+    }
 
     @Test
     public void lastMethod(){
