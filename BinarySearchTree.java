@@ -28,20 +28,23 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 			if (item.compareTo(temp.getData()) == 0)
 				return false;
 			else if (item.compareTo(temp.getData()) > 0) {
-				if (temp.getLeftChild() == null) {
-					temp.setLeftChild(itemNode);
-					size++;
-					return true;
-				}
-				temp = temp.getLeftChild();
-
-			} else {
-				if (temp.getRightChild() == null) {
+				if (temp.getRightChild() != null) {
+					temp = temp.getRightChild();	
+				} else {
 					temp.setRightChild(itemNode);
 					size++;
-					return true;
 				}
-				temp = temp.getRightChild();
+				
+
+			} else {
+				if (temp.getLeftChild() != null) {
+					temp = temp.getLeftChild();
+				} else {
+					
+				temp.setLeftChild(itemNode);
+				size++;
+				return true;
+				}
 			}
 		}
 	}
@@ -69,7 +72,7 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 		while(temp != null) {
 			if(item.compareTo(temp.getData()) == 0)
 				return true;
-			else if(item.compareTo(temp.getData()) > 0)
+			else if(item.compareTo(temp.getData()) < 0)
 				temp = temp.getLeftChild();
 			else {
 			temp = temp.getRightChild();
@@ -81,10 +84,11 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 	@Override
 	public boolean containsAll(Collection<? extends Type> items) {
 		for(Type item: items) {
-			if(contains(item))
-				return true;
+			if(!contains(item)) {
+				return false;
+			}
 		}
-		return false;
+		return true;
 		
 	}
 

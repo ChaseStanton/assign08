@@ -36,10 +36,10 @@ private List<Integer> list;
 	@Test
 	void remove() {
 		tree.remove(1);
-		assertTrue(!tree.contains(1));
+		assertFalse(tree.contains(1));
 		tree.add(1);
 		tree.remove(4);
-		assertTrue(!tree.contains(10));
+		assertFalse(tree.contains(4));
 	}
 	
 	
