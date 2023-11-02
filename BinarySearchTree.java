@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.NoSuchElementException;
 
 /**
- * @author Reece Kalmar, Chase Stanton
+ * @author Reece Kalmar and Chase Stanton
  * @version 11/27/2023
  * 
  *          BinarySearchTree is a class that implements a binary search tree
