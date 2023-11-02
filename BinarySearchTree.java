@@ -52,24 +52,24 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 		}
 		BinaryNode<Type> temp = rootNode;
 
-		while (true) {
-			if (item.compareTo(temp.getData()) == 0)
+		while (true) { // Sets an infinite loop until something is returned.
+			if (item.compareTo(temp.getData()) == 0) // If items already in tree, returns false
 				return false;
-			else if (item.compareTo(temp.getData()) > 0) {
-				if (temp.getRightChild() != null) {
+			else if (item.compareTo(temp.getData()) > 0) { 
+				if (temp.getRightChild() != null) { // If right child isn't null, set temp to the right child
 					temp = temp.getRightChild();
 				} else {
-					temp.setRightChild(itemNode);
-					size++;
+					temp.setRightChild(itemNode);  // if right child is null, set right child to the item
+					size++; 
 					return true;
 				}
 
 			} else {
-				if (temp.getLeftChild() != null) {
+				if (temp.getLeftChild() != null) { // if left child isn't null, set temp to left child
 					temp = temp.getLeftChild();
 				} else {
 
-					temp.setLeftChild(itemNode);
+					temp.setLeftChild(itemNode);  // if left child is null, set left child to the item
 					size++;
 					return true;
 				}
