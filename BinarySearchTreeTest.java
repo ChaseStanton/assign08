@@ -92,17 +92,32 @@ class BinarySearchTreeTest {
     }
     @Test
     public void firstMethod2(){
+        tree = new BinarySearchTree<Integer>();
+        
+        tree.add(4);
+        tree.add(5);
+        tree.add(6);
+        tree.add(7);
+        tree.add(8);
+        tree.add(9);
+        tree.add(10);
+        assertEquals(tree.first(), 4);
+    }
+
+    @Test
+    public void firstMethod3(){
         stringTree = new BinarySearchTree<>();
         
-        stringTree.add("4");
-        stringTree.add("5");
-        stringTree.add("6");
-        stringTree.add("7");
-        stringTree.add("8");
-        stringTree.add("9");
-        stringTree.add("10");
-        assertEquals(stringTree.first(), "4");
+        stringTree.add("d");
+        stringTree.add("e");
+        stringTree.add("f");
+        stringTree.add("g");
+        stringTree.add("h");
+        stringTree.add("i");
+        stringTree.add("j");
+        assertEquals(stringTree.first(), "d");
     }
+
 
     @Test
     public void lastMethod(){
@@ -189,29 +204,58 @@ class BinarySearchTreeTest {
 
     @Test
     public void toArrayMethod(){
+        tree = new BinarySearchTree<Integer>();
+        ArrayList<Integer> treeInt = new ArrayList<>();
+        treeInt.add(1);
+        treeInt.add(2);
+        treeInt.add(3);
+        treeInt.add(4);
+        treeInt.add(5);
+        treeInt.add(6);
+        treeInt.add(7);
+        treeInt.add(8);
+        treeInt.add(9);
+        treeInt.add(10);
+
+        assertTrue(tree.add(1));
+        assertTrue(tree.add(2));
+        assertTrue(tree.add(3));
+        assertTrue(tree.add(4));
+        assertTrue(tree.add(5));
+        assertTrue(tree.add(6));
+        assertTrue(tree.add(7));
+        assertTrue(tree.add(8));
+        assertTrue(tree.add(9));
+        assertTrue(tree.add(10));
+
+        assertEquals(treeInt, tree.toArrayList());
+    }
+
+    @Test
+    public void toArrayMethodString(){
         stringTree = new BinarySearchTree<>();
         ArrayList<String> treeToString = new ArrayList<>();
-        treeToString.add("1");
-        treeToString.add("2");
-        treeToString.add("3");
-        treeToString.add("4");
-        treeToString.add("5");
-        treeToString.add("6");
-        treeToString.add("7");
-        treeToString.add("8");
-        treeToString.add("9");
-        treeToString.add("10");
+        treeToString.add("a");
+        treeToString.add("b");
+        treeToString.add("c");
+        treeToString.add("d");
+        treeToString.add("e");
+        treeToString.add("f");
+        treeToString.add("g");
+        treeToString.add("h");
+        treeToString.add("i");
+        treeToString.add("j");
 
-        assertTrue(stringTree.add("1"));
-        assertTrue(stringTree.add("2"));
-        assertTrue(stringTree.add("3"));
-        assertTrue(stringTree.add("4"));
-        assertTrue(stringTree.add("5"));
-        assertTrue(stringTree.add("6"));
-        assertTrue(stringTree.add("7"));
-        assertTrue(stringTree.add("8"));
-        assertTrue(stringTree.add("9"));
-        assertTrue(stringTree.add("10"));
+        assertTrue(stringTree.add("a"));
+        assertTrue(stringTree.add("b"));
+        assertTrue(stringTree.add("c"));
+        assertTrue(stringTree.add("d"));
+        assertTrue(stringTree.add("e"));
+        assertTrue(stringTree.add("f"));
+        assertTrue(stringTree.add("g"));
+        assertTrue(stringTree.add("h"));
+        assertTrue(stringTree.add("i"));
+        assertTrue(stringTree.add("j"));
 
         assertEquals(treeToString, stringTree.toArrayList());
     }
