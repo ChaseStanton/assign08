@@ -120,6 +120,29 @@ class BinarySearchTreeTest {
         
         assertEquals(stringTree.last(), "j");
     }
+    @Test
+    public void lastMethod2(){
+        stringTree = new BinarySearchTree<>();
+        stringTree.add("a");
+        stringTree.add("b");
+        stringTree.add("c");
+        stringTree.add("d");
+        stringTree.add("e");
+        stringTree.add("f");
+        stringTree.add("g");
+        
+        assertEquals(stringTree.last(), "g");
+    }
+    @Test
+    public void lastMethod3(){
+        stringTree = new BinarySearchTree<>();
+        stringTree.add("1");
+        stringTree.add("2");
+        stringTree.add("3");
+        stringTree.add("4");
+        
+        assertEquals(stringTree.last(), "4");
+    }
 
     @Test
     public void removeMethod(){
