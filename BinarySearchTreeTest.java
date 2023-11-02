@@ -166,18 +166,18 @@ class BinarySearchTreeTest {
         treeToString.add("9");
         treeToString.add("10");
 
-        stringTree.add("1");
-        stringTree.add("2");
-        stringTree.add("3");
-        stringTree.add("4");
-        stringTree.add("5");
-        stringTree.add("6");
-        stringTree.add("7");
-        stringTree.add("8");
-        stringTree.add("9");
-        stringTree.add("10");
+        assertTrue(stringTree.add("1"));
+        assertTrue(stringTree.add("2"));
+        assertTrue(stringTree.add("3"));
+        assertTrue(stringTree.add("4"));
+        assertTrue(stringTree.add("5"));
+        assertTrue(stringTree.add("6"));
+        assertTrue(stringTree.add("7"));
+        assertTrue(stringTree.add("8"));
+        assertTrue(stringTree.add("9"));
+        assertTrue(stringTree.add("10"));
 
-        assertEquals(stringTree.toArrayList(), treeToString);
+        assertEquals(treeToString, stringTree.toArrayList());
     }
 
     @Test

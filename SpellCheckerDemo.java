@@ -13,10 +13,10 @@ public class SpellCheckerDemo {
 
 	public static void main(String[] args) {
 
-		SpellChecker mySC = new SpellChecker(new File("src/assign08/dictionary.txt"));
+		SpellChecker mySC = new SpellChecker(new File("assign08\\dictionary.txt"));
 
-		runSpellCheck(mySC, "src/assign08/hello_world.txt");
-		runSpellCheck(mySC, "src/assign08/good_luck.txt");
+		runSpellCheck(mySC, "assign08\\hello_world.txt");
+		runSpellCheck(mySC, "assign08\\good_luck.txt");
 	}
 
 	/**
