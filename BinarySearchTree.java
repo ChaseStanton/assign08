@@ -33,6 +33,7 @@ public class BinarySearchTree<Type extends Comparable<? super Type>> implements 
 				} else {
 					temp.setRightChild(itemNode);
 					size++;
+					return true;
 				}
 				
 
