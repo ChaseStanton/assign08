@@ -107,18 +107,18 @@ class BinarySearchTreeTest {
     @Test
     public void lastMethod(){
         stringTree = new BinarySearchTree<>();
-        stringTree.add("1");
-        stringTree.add("2");
-        stringTree.add("3");
-        stringTree.add("4");
-        stringTree.add("5");
-        stringTree.add("6");
-        stringTree.add("7");
-        stringTree.add("8");
-        stringTree.add("9");
-        stringTree.add("10");
+        stringTree.add("a");
+        stringTree.add("b");
+        stringTree.add("c");
+        stringTree.add("d");
+        stringTree.add("e");
+        stringTree.add("f");
+        stringTree.add("g");
+        stringTree.add("h");
+        stringTree.add("i");
+        stringTree.add("j");
         
-        assertEquals(stringTree.last(), "10");
+        assertEquals(stringTree.last(), "j");
     }
 
     @Test
