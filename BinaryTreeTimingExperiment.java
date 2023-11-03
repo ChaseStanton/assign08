@@ -7,9 +7,9 @@ import java.util.TreeSet;
 
 public class BinaryTreeTimingExperiment {
 	public static void main(String[] args) {
-		int startN = 100;
-	    int endN = 1000;
-	    int stepSize = 100;
+		int startN = 10000;
+	    int endN = 200000;
+	    int stepSize = 10000;
 
 	    System.out.println("N\tSorted Insertion Time (ns) \t Random Insertion Time (ns) \t Sorted Java Tree Insertion Time \t Random Java Tree Insertion Time" );
 
